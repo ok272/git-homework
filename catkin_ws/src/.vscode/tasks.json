@@ -1,0 +1,29 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cmake",
+			"label": "CMake: 生成",
+			"command": "build",
+			"targets": [
+				"[N/a - 选择工具包]"
+			],
+			"group": "build",
+			"problemMatcher": [],
+			"detail": "CMake 模板 生成 任务"
+		},
+		{
+			"type": "catkin_make",
+			"args": [
+				"--directory",
+				"/home/ok/catkin_ws",
+				"-DCMAKE_BUILD_TYPE=RelWithDebInfo"
+			],
+			"problemMatcher": [
+				"$catkin-gcc"
+			],
+			"group": "build",
+			"label": "catkin_make: build"
+		}
+	]
+}

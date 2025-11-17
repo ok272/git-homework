@@ -1,0 +1,2 @@
+DynamixelSDK/ros/dynamixel_sdk:DynamixelSDK/ros/dynamixel_sdk_examples:ros_package1:ros_package2:turtlebot3/turtlebot3:turtlebot3/turtlebot3_bringup:turtlebot3/turtlebot3_example:turtlebot3/turtlebot3_navigation:turtlebot3/turtlebot3_slam:turtlebot3/turtlebot3_teleop:turtlebot3_description:turtlebot3_msgs:turtlebot3_nav:turtlebot3_simulations/turtlebot3_fake:turtlebot3_simulations/turtlebot3_gazebo:turtlebot3_simulations/turtlebot3_simulations:wpr_simulation
+-DCATKIN_DEVEL_PREFIX=/home/ok/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/ok/catkin_ws/install -G Unix Makefiles

@@ -1,0 +1,4 @@
+Symlinking /home/ok/catkin_ws/devel/lib/ros_package1/position_controller
+Symlinking /home/ok/catkin_ws/devel/lib/pkgconfig/ros_package1.pc
+Symlinking /home/ok/catkin_ws/devel/share/ros_package1/cmake/ros_package1Config-version.cmake
+Symlinking /home/ok/catkin_ws/devel/share/ros_package1/cmake/ros_package1Config.cmake

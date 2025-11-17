@@ -1,0 +1,8 @@
+prefix=/home/ok/catkin_ws/devel
+
+Name: ros_package1
+Description: Description of ros_package1
+Version: 0.0.0
+Cflags: -I/home/ok/catkin_ws/src/ros_package1/include
+Libs: -L${prefix}/lib -lros_package1
+Requires: geometry_msgs nav_msgs roscpp tf std_msgs

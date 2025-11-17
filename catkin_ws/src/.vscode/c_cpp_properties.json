@@ -1,0 +1,27 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/opt/ros/noetic/include/**",
+        "/home/ok/catkin_ws/src/DynamixelSDK/ros/dynamixel_sdk/include/**",
+        "/home/ok/catkin_ws/src/ssr_pkg/include/**",
+        "/home/ok/catkin_ws/src/turtlebot3_simulations/turtlebot3_fake/include/**",
+        "/home/ok/catkin_ws/src/turtlebot3_simulations/turtlebot3_gazebo/include/**",
+        "/home/ok/catkin_ws/src/turtlebot3_nav/include/**",
+        "/home/ok/catkin_ws/src/turtlebot3/turtlebot3_slam/include/**",
+        "/home/ok/catkin_ws/src/wpr_simulation/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

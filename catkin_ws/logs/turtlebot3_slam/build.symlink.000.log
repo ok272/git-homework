@@ -1,0 +1,4 @@
+Symlinking /home/ok/catkin_ws/devel/lib/turtlebot3_slam/flat_world_imu_node
+Symlinking /home/ok/catkin_ws/devel/lib/pkgconfig/turtlebot3_slam.pc
+Symlinking /home/ok/catkin_ws/devel/share/turtlebot3_slam/cmake/turtlebot3_slamConfig-version.cmake
+Symlinking /home/ok/catkin_ws/devel/share/turtlebot3_slam/cmake/turtlebot3_slamConfig.cmake

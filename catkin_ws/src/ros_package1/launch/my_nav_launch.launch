@@ -1,0 +1,14 @@
+<launch>
+   
+  <env name="TURTLEBOT3_MODEL"
+  value="burger" />
+  
+  <include file="/home/ok/catkin_ws/src/turtlebot3_simulations/turtlebot3_gazebo/launch/turtlebot3_world.launch" />
+
+  <node 
+    name="position_controller"         
+    pkg="ros_package1"   
+    type="position_controller"          
+    output="screen" />
+
+</launch>

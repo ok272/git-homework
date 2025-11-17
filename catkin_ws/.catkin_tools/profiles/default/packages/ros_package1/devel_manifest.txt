@@ -1,0 +1,5 @@
+ros_package1
+/home/ok/catkin_ws/devel/.private/ros_package1/lib/ros_package1/position_controller /home/ok/catkin_ws/devel/lib/ros_package1/position_controller
+/home/ok/catkin_ws/devel/.private/ros_package1/lib/pkgconfig/ros_package1.pc /home/ok/catkin_ws/devel/lib/pkgconfig/ros_package1.pc
+/home/ok/catkin_ws/devel/.private/ros_package1/share/ros_package1/cmake/ros_package1Config-version.cmake /home/ok/catkin_ws/devel/share/ros_package1/cmake/ros_package1Config-version.cmake
+/home/ok/catkin_ws/devel/.private/ros_package1/share/ros_package1/cmake/ros_package1Config.cmake /home/ok/catkin_ws/devel/share/ros_package1/cmake/ros_package1Config.cmake

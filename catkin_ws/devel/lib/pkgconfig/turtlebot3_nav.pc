@@ -1,0 +1,8 @@
+prefix=/home/ok/catkin_ws/devel
+
+Name: turtlebot3_nav
+Description: Description of turtlebot3_nav
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
