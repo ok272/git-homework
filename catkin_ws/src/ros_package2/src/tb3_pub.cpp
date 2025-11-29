@@ -1,41 +1,52 @@
 #include <ros/ros.h>
 #include <nav_msgs/Odometry.h>
+#include <nav_msgs/Path.h>
 #include <tf2_ros/transform_broadcaster.h>
 #include <geometry_msgs/TransformStamped.h> 
+#include <geometry_msgs/PoseStamped.h>
 #include <tf2/LinearMath/Quaternion.h>  
-#include <tf2/LinearMath/Matrix3x3.h> 
-#include <tf2_geometry_msgs/tf2_geometry_msgs.h>
+#include <string>
 
 //声明变量来接受传递的参数
 std::string tb3_name;
+nav_msgs::Path robot_path;
 
 void odomCallback(const nav_msgs::Odometry::ConstPtr& odom){
     static tf2_ros::TransformBroadcaster pub;
     geometry_msgs::TransformStamped ts;
-    ts.header.frame_id = "world";
-    ts.header.stamp = ros::Time::now();
-    ts.child_frame_id = tb3_name;
+
+    ts.header.frame_id = "odom";
+    ts.header.stamp = odom->header.stamp;  
+    ts.child_frame_id = tb3_name + "/base_footprint";
+
     //坐标系偏移量设置
     ts.transform.translation.x = odom->pose.pose.position.x;
     ts.transform.translation.y = odom->pose.pose.position.y;
     ts.transform.translation.z = odom->pose.pose.position.z;
-    //坐标系四元数
-    tf2::Quaternion q;//a.存储里程计的四元数
-    tf2::fromMsg(odom->pose.pose.orientation, q);//b.将里程计消息中的四元数转成tf2类型
-    //c.将四元数转换为欧拉角
-    double roll, pitch, yaw;
-    tf2::Matrix3x3(q).getRPY(roll, pitch, yaw);
-    //d.用欧拉角重新生成四元数
-    tf2::Quaternion qtn;
-    qtn.setRPY(roll, pitch, yaw);
 
-    ts.transform.rotation.x = qtn.getX();
-    ts.transform.rotation.y = qtn.getY();
-    ts.transform.rotation.z = qtn.getZ();
-    ts.transform.rotation.w = qtn.getW();
-
+    ts.transform.rotation = odom->pose.pose.orientation;
+    
     pub.sendTransform(ts);
+
+    if (tb3_name == "tb3_0") {  // 只让tb3_0发布路径
+        geometry_msgs::PoseStamped pose_stamped;
+        pose_stamped.header.frame_id = "odom";
+        pose_stamped.header.stamp = odom->header.stamp;
+        pose_stamped.pose = odom->pose.pose;  // 直接使用里程计位姿
+
+        // 限制路径点数量（避免内存溢出）
+        if (robot_path.poses.size() > 1000) {
+            robot_path.poses.erase(robot_path.poses.begin());
+        }
+        robot_path.poses.push_back(pose_stamped);
+        robot_path.header = pose_stamped.header;  // 同步头部信息
+
+        // 发布路径（话题名：/tb3_0/path）
+        static ros::Publisher path_pub = ros::NodeHandle().advertise<nav_msgs::Path>("/tb3_0/path", 10);
+        path_pub.publish(robot_path);
+    }
 }                                        
+                                      
 
 int main (int argc,char *argv[])
 {
